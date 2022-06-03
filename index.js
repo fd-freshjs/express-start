@@ -1,24 +1,13 @@
-const http = require('http');
+const express = require('express');
 
 // Create a local server to receive data from
-const server = http.createServer((req, res) => {
-  if (req.method == 'GET' && req.url === '/workspaces') {
+const app = express();
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end('OK');
-    return;
-  }
+app.get('/', (req, res) => {
+    console.log('Hello world');
 
-  if (req.method === 'GET' && req.url.includes('/workspaces/')) {
-    const id = req.url.split('/')[2];
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end('DELETED ' + id);
-    return;
-  }
-
-  res.end('404');
+    res.end();
 });
 
 // http://localhost:5000
-server.listen(5000);
+app.listen(5000);
