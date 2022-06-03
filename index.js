@@ -6,8 +6,10 @@ const app = express();
 app.get('/', (req, res) => {
     console.log('Hello world');
 
-    res.end();
+    res.send({ test: 'test' });
 });
 
 // http://localhost:5000
-app.listen(5000);
+app.listen(5000, () => {
+    console.log('Server started');
+});
