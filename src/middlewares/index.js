@@ -1,5 +1,9 @@
+const yup = require('yup');
+
+const paramID = yup.number().positive().required();
+
 module.exports.middleWare = (req, res, next) => {
-    const verdict = !isNaN(Number(req.params.id));
+    const verdict = paramID.isValidSync(req.params.id);
     if (verdict) {
         return next();
     }
