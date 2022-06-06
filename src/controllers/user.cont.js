@@ -12,7 +12,7 @@ class UserController {
 
     createUser(req, res, next) {
         try {
-            const user = { name: 'Viktor', email: 'asda@mail.com' };
+            const user = { ...req.body };
         
             res.status(200).send({ data: user });
         } catch (error) {

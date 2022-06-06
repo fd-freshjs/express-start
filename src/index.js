@@ -6,6 +6,8 @@ const router = require('./routes/index.js');
 // Create a server to receive data from clients
 const app = express();
 
+app.use(express.json());
+
 app.use('/', router);
 
 app.use(clientErrorsHandler);
