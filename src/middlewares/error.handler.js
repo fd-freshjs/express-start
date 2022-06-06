@@ -7,3 +7,8 @@ module.exports.clientErrorsHandler = async (err, req, res, next) => {
     }
     next(err);
 }
+
+module.exports.serverErrorHandler = async (err, req, res, next) => {
+
+    res.status(500).send(`${500}: Server error`);
+}

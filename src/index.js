@@ -1,6 +1,6 @@
 // common js modules
 const express = require('express');
-const { clientErrorsHandler } = require('./middlewares/error.handler.js');
+const { clientErrorsHandler, serverErrorHandler } = require('./middlewares/error.handler.js');
 const router = require('./routes/index.js');
 
 // Create a server to receive data from clients
@@ -11,6 +11,7 @@ app.use(express.json());
 app.use('/', router);
 
 app.use(clientErrorsHandler);
+app.use(serverErrorHandler);
 
 // http://localhost:5000
 app.listen(5000, () => {
