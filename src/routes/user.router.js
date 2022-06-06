@@ -4,7 +4,7 @@ const { middleWare } = require("../middlewares/index.js");
 const userController = require("../controllers/user.cont.js");
 
 // path /users
-const userRouter = express.Router()
+const userRouter = express.Router();
 
 // route -> mws -> endpoint/controller (getUser)
 
