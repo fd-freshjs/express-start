@@ -1,14 +1,8 @@
-const getHome = (req, res) => {
-    console.log(req.params.id);
+const express = require("express");
+const userRouter = require("./user.router.js");
 
-    res.status(200).send({ id: req.params.id });
-}
-module.exports.getHome = getHome;
+const router = express.Router();
 
-// es modules
-// export default 
-// export const func
+router.use('/users', userRouter);
 
-// common js module
-// module.exports.default = getHome;
-// module.exports.func = getHome;
+module.exports = router;
