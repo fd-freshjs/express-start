@@ -11,4 +11,9 @@ heroRouter.post('/create', heroCreateMiddleware, heroController.createHero);
 // update hero by id
 heroRouter.patch('/:id', heroUpdateMiddleware, heroController.updateHero);
 
+// /test - 2)
+// /all - 1)
+heroRouter.get('/all');
+heroRouter.get('/:id');
+
 module.exports = heroRouter;

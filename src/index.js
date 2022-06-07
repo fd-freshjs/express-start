@@ -6,7 +6,14 @@ const router = require('./routes/index.js');
 // Create a server to receive data from clients
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); // Content-Type: application/json
+
+// cors
+
+app.use(function (req, res, next) {
+    console.log(new Date().toLocaleString(), req.method, req.path, req.body);
+    next();
+})
 
 app.use('/', router);
 
