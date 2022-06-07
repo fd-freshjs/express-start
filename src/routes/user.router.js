@@ -15,6 +15,5 @@ userRouter.delete('/:id', userController.deleteUser);
 
 userRouter.post('/', userController.createUser);
 userRouter.patch('/', uploadAvatarMw('avatar'), userController.updateUser); // обновление
-userRouter.put('/', userController.updateUser); // замена
 
 module.exports = userRouter;

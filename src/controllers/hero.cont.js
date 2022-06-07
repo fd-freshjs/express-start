@@ -4,7 +4,7 @@ const heroService = require('../services/heroService.js');
 class HeroController {
   async createHero(req, res, next) {
     try {
-      const data = req.body;
+      const data = { ...req.body, nickname: req.params.nickname, photo: req.file.filename };
 
       const newHero = await heroService.createHero(data);
 
@@ -18,11 +18,17 @@ class HeroController {
     try {
       const {
         body,
+        file,
         params: { id }, // /path/:id/
         query: {}, // ?key=value
       } = req;
 
-      const updatedHero = await heroService.updateHero(Number(id), body);
+      const data = { ...body };
+      if (file) {
+        data.photo = file.filename;
+      }
+
+      const updatedHero = await heroService.updateHero(Number(id), data);
 
       res.send({ data: updatedHero });
     } catch (error) {

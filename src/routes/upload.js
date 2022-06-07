@@ -16,7 +16,7 @@ function getFilename(req, file, type) {
     return req.body.id + path.extname(file.originalname);
   }
   if (type === 'heroPhotos') {
-    return req.body.id + path.extname(file.originalname);
+    return req.body.nickname + path.extname(file.originalname);
   }
   return file.fieldname + '-' + Date.now();
 }
@@ -35,6 +35,8 @@ function createConfig(type) {
 }
 
 const uploadAvatar = createConfig('avatars');
-const uploadHeroPhotos = createConfig('heroPhotos');
+const uploadHeroPhoto = createConfig('heroPhotos');
 
 module.exports.uploadAvatarMw = (field) => uploadAvatar.single(field);
+
+module.exports.uploadHeroPhotoMw = (field) => uploadHeroPhoto.single(field);

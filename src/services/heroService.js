@@ -19,9 +19,14 @@ module.exports.updateHero = async (id, data) => {
   const updatedHero = {
     /* old data */ ...foundHeroData,
     /* replace with new data */ ...data,
+    id: foundHeroData.id,
   };
 
   heroesDB[foundHeroIdx] = updatedHero;
 
   return updatedHero;
 };
+
+module.exports.findById = async (id) => {
+
+}
