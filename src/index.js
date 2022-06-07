@@ -13,7 +13,7 @@ app.use(express.json()); // Content-Type: application/json
 app.use(function (req, res, next) {
     console.log(new Date().toLocaleString(), req.method, req.path, req.body);
     next();
-})
+});
 
 app.use('/', router);
 
