@@ -2,7 +2,7 @@ const createError = require("http-errors");
 const heroService = require('../services/heroService.js');
 
 class HeroController {
-  createHero(req, res, next) {
+  async createHero(req, res, next) {
     try {
       const data = req.body;
 
@@ -14,7 +14,7 @@ class HeroController {
     }
   }
 
-  updateHero(req, res, next) {
+  async updateHero(req, res, next) {
     try {
       const {
         body,

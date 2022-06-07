@@ -2,6 +2,7 @@
 const express = require("express");
 const { middleWare } = require("../middlewares/index.js");
 const userController = require("../controllers/user.cont.js");
+const { uploadAvatarMw } = require("./upload.js");
 
 // path /users
 const userRouter = express.Router();
@@ -13,7 +14,7 @@ userRouter.get('/:id/get', middleWare, userController.getUser);
 userRouter.delete('/:id', userController.deleteUser);
 
 userRouter.post('/', userController.createUser);
-userRouter.patch('/', userController.updateUser); // обновление
+userRouter.patch('/', uploadAvatarMw('avatar'), userController.updateUser); // обновление
 userRouter.put('/', userController.updateUser); // замена
 
 module.exports = userRouter;

@@ -22,6 +22,9 @@ class UserController {
 
     updateUser (req, res, next) {
         try {
+            console.log(req.body);
+            console.log(req.file);
+
             res.status(200).send({ data: 'user' });
         } catch (error) {
             next(error);
